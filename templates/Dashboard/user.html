@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    {% include "dashboard/sidebar.html" %}
+   
+    <div class="col-md-9">
+        <div class="d-flex justify-content-between align-items-center">
+            {% if perms.auth.view_user %}
+         <h2>All Users</h2>
+         <a class="btn btn-warning float-right mb-2"  href="{% url 'add_user' %}" >Add new</a>
+         </div>
+         <table class="table table-hover">
+            <thead>
+             <tr>
+                <th>#</th>
+                <th>Full_name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Active</th>
+                <th>Staff</th>
+                <th>Superuser</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for b in users %}
+                 <tr>
+                    <td>{{b.id}}</th>
+                    <td>{{b.first_name}} {{b.last_name}}</td>
+                    <td>{{b.username}}</td>
+                    <td>{{b.email}}</td>
+                    <td>{% if b.is_active %}<i class="fa fa-check" style="color: rgb(1, 170, 61);"></i> {% else %}<i class="fa fa-times" style="color: rgb(219, 30, 4);"></i> {% endif %}</td>
+                    <td>{% if b.is_staff %}<i class="fa fa-check" style="color: rgb(1, 170, 61);"></i> {% else %}<i class="fa fa-times" style="color: rgb(219, 30, 4);"></i> {% endif %}</td>
+                     <td>{% if b.is_superuser %}<i class="fa fa-check" style="color: rgb(1, 170, 61);"></i> {% else %}<i class="fa fa-times" style="color: rgb(219, 30, 4);"></i> {% endif %}</td>
+                    <td>
+                        <a href="{% url 'edit_user' b.id %}"><i class="fa fa-edit text-primary" ></i></a>
+                        &nbsp;
+                        <a href="{% url 'delete_user' b.id %}"><i class="fa fa-trash text-danger" aria-hidden="true" href=""></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+          {% else %}
+          <h2>You don't have permissions</h2>
+          {% endif %}
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+{% endblock %}

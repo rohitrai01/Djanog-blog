@@ -20,7 +20,7 @@ A fully-featured, multi-app Django-based blog platform. This project includes a 
 - **Database:** (Default SQLite, easily configurable for PostgreSQL, MySQL, etc.)
 
 📁 Project Structure
-
+```
 The project is organized into several Django applications for modularity:
 Djanog-blog/
 ├── aboutUs/ # Handles the "About Us" page view and logic
@@ -32,3 +32,4 @@ Djanog-blog/
 ├── manage.py # Django command-line utility
 ├── requirements.txt # Python package dependencies
 └── .gitignore # Files ignored by version control
+```

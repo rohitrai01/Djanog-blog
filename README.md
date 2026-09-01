@@ -75,7 +75,6 @@ db.sqlite3                 # SQLite database (includes existing data/migrations)
 LICENSE                    # MIT License
 ```
 
-> All four apps (`blog`, `aboutUs`, `dashboard`, plus the `djangoblog` project package) are now covered by uploaded source.
 
 ## Getting Started
 
@@ -107,7 +106,7 @@ LICENSE                    # MIT License
    python manage.py migrate
    ```
 
-   > The repo already ships a `db.sqlite3` with data in it, so this step is mainly to keep migrations in sync — back up or remove `db.sqlite3` first if you want a clean database instead.
+
 
 5. **Create a superuser** (for `/admin/`, and to log into `/dashboard/`)
    ```bash
